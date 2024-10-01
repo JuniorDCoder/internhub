@@ -46,4 +46,69 @@ class SendSlackNotification extends Controller
 
         return 'success';
     }
+
+    public function sendInternshipNotification($internship)
+    {
+        $message = "🎉 *New Internship Application Submitted!* 🎉";
+        $attachments = [
+            [
+                'color' => '#36a64f',
+                'title' => 'Internship Application Details',
+                'fields' => [
+                    [
+                        'title' => 'Name',
+                        'value' => $internship->user->name,
+                        'short' => true
+                    ],
+                    [
+                        'title' => 'School',
+                        'value' => $internship->user->school,
+                        'short' => true
+                    ],
+                    [
+                        'title' => 'Phone',
+                        'value' => $internship->user->phone,
+                        'short' => true
+                    ],
+                    [
+                        'title' => 'Level',
+                        'value' => $internship->user->level,
+                        'short' => true
+                    ],
+                    [
+                        'title' => 'Specialty',
+                        'value' => $internship->specialty->name,
+                        'short' => true
+                    ],
+                    [
+                        'title' => 'Status',
+                        'value' => $internship->status,
+                        'short' => true
+                    ],
+                    [
+                        'title' => 'Start Date',
+                        'value' => date('F j, Y', strtotime($internship->start_date)),
+                        'short' => true
+                    ],
+                    [
+                        'title' => 'End Date',
+                        'value' => date('F j, Y', strtotime($internship->end_date)),
+                        'short' => true
+                    ],
+                ],
+                'footer' => 'Internship Application System',
+                'ts' => time()
+            ]
+        ];
+
+        if ($internship->resume) {
+            $attachments[0]['fields'][] = [
+                'title' => 'Resume',
+                'value' => 'Attached',
+                'short' => true
+            ];
+        }
+
+        return $this->sendNotification($message, $attachments);
+    }
 }

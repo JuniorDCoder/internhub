@@ -49,6 +49,8 @@ class InternshipController extends Controller
         $internship->status = 'pending';
         $internship->save();
 
+        $slackNotification = new SendSlackNotification();
+        $slackNotification->sendInternshipNotification($internship);
 
         return redirect()->route('apply')->with('success', 'Your application has been submitted successfully!');
     }

@@ -12,6 +12,10 @@
                         <p class="text-lg mt-2">You will be redirected to your dashboard in a few seconds.</p>
                     </div>
                 </div>
+
+                <!-- Loader -->
+                <Loader v-if="form.processing" />
+
                 <div class="flex flex-col md:w-2/3">
                     <!-- Warning Message -->
                     <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
@@ -168,15 +172,15 @@
                             <path
                                 class="circle-bg"
                                 d="M18 2.0845
-                   a 15.9155 15.9155 0 0 1 0 31.831
-                   a 15.9155 15.9155 0 0 1 0 -31.831"
+                 a 15.9155 15.9155 0 0 1 0 31.831
+                 a 15.9155 15.9155 0 0 1 0 -31.831"
                             />
                             <path
                                 class="circle"
                                 :stroke-dasharray="`${progress}, 100`"
                                 d="M18 2.0845
-                   a 15.9155 15.9155 0 0 1 0 31.831
-                   a 15.9155 15.9155 0 0 1 0 -31.831"
+                 a 15.9155 15.9155 0 0 1 0 31.831
+                 a 15.9155 15.9155 0 0 1 0 -31.831"
                             />
                             <text x="18" y="20.35" class="percentage">{{ progress }}%</text>
                         </svg>
@@ -216,7 +220,6 @@
                     </div>
                 </div>
             </div>
-
         </AnimatedContent>
     </GuestLayout>
 </template>
@@ -231,6 +234,7 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
 import InputLabel from "@/Components/InputLabel.vue";
 import TextInput from "@/Components/TextInput.vue";
 import InputError from "@/Components/InputError.vue";
+import Loader from "@/Components/Loader.vue";
 
 defineProps({
     specialties: Array,
