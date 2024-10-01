@@ -9,7 +9,8 @@
                         <img src="@/assets/images/icons/success.png" alt="Success" class="w-16 h-16 mx-auto mb-4" />
                         <h2 class="text-2xl font-bold mb-2">Success!</h2>
                         <p class="text-lg">Your application has been submitted successfully!</p>
-                        <p class="text-lg mt-2">A confirmation email has been sent to you. You will be redirected to your dashboard in a few seconds.</p>
+                        <p class="text-lg mt-1">An email has been sent to you to confirm your application submission.</p>
+                        <p class="text-lg mt-2">You will be redirected to your dashboard in a few seconds.</p>
                     </div>
                 </div>
 
@@ -36,12 +37,12 @@
                         <h2 class="text-xl font-semibold mb-4">Personal Information</h2>
                         <form @submit.prevent="nextStep">
                             <div>
-                                <InputLabel for="name" value="Name (Required)" />
+                                <InputLabel for="name" value="Name" />
                                 <TextInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
                                 <InputError class="mt-2" :message="form.errors.name" />
                             </div>
                             <div class="mt-4">
-                                <InputLabel for="email" value="Email (Required)" />
+                                <InputLabel for="email" value="Email" />
                                 <TextInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autocomplete="username" />
                                 <InputError class="mt-2" :message="form.errors.email" />
                             </div>
@@ -55,12 +56,12 @@
                         <h2 class="text-xl font-semibold mb-4">Contact Information</h2>
                         <form @submit.prevent="nextStep">
                             <div>
-                                <InputLabel for="phone" value="Phone (Required)" />
+                                <InputLabel for="phone" value="Phone" />
                                 <TextInput id="phone" type="text" class="mt-1 block w-full" v-model="form.phone" required />
                                 <InputError class="mt-2" :message="form.errors.phone" />
                             </div>
                             <div class="mt-4">
-                                <InputLabel for="address" value="Address (Required)" />
+                                <InputLabel for="address" value="Address" />
                                 <TextInput id="address" type="text" class="mt-1 block w-full" v-model="form.address" required />
                                 <InputError class="mt-2" :message="form.errors.address" />
                             </div>
@@ -75,12 +76,12 @@
                         <h2 class="text-xl font-semibold mb-4">School Information</h2>
                         <form @submit.prevent="nextStep" enctype="multipart/form-data">
                             <div>
-                                <InputLabel for="school" value="School Name (Required)" />
+                                <InputLabel for="school" value="School Name" />
                                 <TextInput id="school" type="text" class="mt-1 block w-full" v-model="form.school" required />
                                 <InputError class="mt-2" :message="form.errors.school" />
                             </div>
                             <div class="mt-4">
-                                <InputLabel for="level" value="School Level (Required)" />
+                                <InputLabel for="level" value="School Level" />
                                 <select id="level" class="mt-1 block w-full" v-model="form.level" required>
                                     <option value="" disabled>Select Level</option>
                                     <option value="Level 200">Level 200</option>
@@ -92,7 +93,7 @@
                                 <InputError class="mt-2" :message="form.errors.level" />
                             </div>
                             <div class="mt-4">
-                                <InputLabel for="resume" value="Resume (PDF) (Optional)" />
+                                <InputLabel for="resume" value="Resume (PDF) - Optional" />
                                 <input id="resume" type="file" class="mt-1 block w-full" @change="handleFileUpload" accept="application/pdf" />
                                 <InputError class="mt-2" :message="form.errors.resume" />
                                 <div v-if="form.resume" class="mt-4">
@@ -110,7 +111,7 @@
                         <h2 class="text-xl font-semibold mb-4">Internship Details</h2>
                         <form @submit.prevent="nextStep">
                             <div>
-                                <InputLabel for="specialty" value="Specialty (Required)" />
+                                <InputLabel for="specialty" value="Specialty" />
                                 <select id="specialty" class="mt-1 block w-full" v-model="form.specialty" required>
                                     <option value="" disabled>Select Specialty</option>
                                     <option v-for="specialty in specialties" :key="specialty.id" :value="specialty.id">{{ specialty.name }}</option>
@@ -118,12 +119,12 @@
                                 <InputError class="mt-2" :message="form.errors.specialty" />
                             </div>
                             <div class="mt-4">
-                                <InputLabel for="start_date" value="Start Date (Required)" />
+                                <InputLabel for="start_date" value="Start Date" />
                                 <TextInput id="start_date" type="date" class="mt-1 block w-full" v-model="form.start_date" required />
                                 <InputError class="mt-2" :message="form.errors.start_date" />
                             </div>
                             <div class="mt-4">
-                                <InputLabel for="end_date" value="End Date (Required)" />
+                                <InputLabel for="end_date" value="End Date" />
                                 <TextInput id="end_date" type="date" class="mt-1 block w-full" v-model="form.end_date" required />
                                 <InputError class="mt-2" :message="form.errors.end_date" />
                             </div>
