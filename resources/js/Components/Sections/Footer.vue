@@ -22,36 +22,36 @@
       <div class="flex flex-col space-y-2">
         <NavLink :is-active="route().current('welcome')" :to="route('welcome')" text="Home" />
         <NavLink :is-active="route().current('about')" :to="route('about')" text="About" />
-        <NavLink :is-active="route().current('welcome')" :to="route('welcome')" text="Contact" />
-        <NavLink :is-active="route().current('welcome')" :to="route('welcome')" text="Fees" />
-        <NavLink :is-active="route().current('welcome')" :to="route('welcome')" text="Our Fields" />
+        <NavLink :is-active="route().current('contact')" :to="route('contact')" text="Contact" />
+        <NavLink :is-active="route().current('fees')" :to="route('fees')" text="Fees" />
+        <NavLink :is-active="route().current('fields')" :to="route('fields')" text="Our Fields" />
       </div>
     </div>
     <div class="flex flex-col space-y-3">
       <h3 class="text-2xl font-semibold text-primary-dark">Support</h3>
       <div class="flex flex-col space-y-2">
-        <NavLink to="" text="FAQ"/>
-        <NavLink to="" text="Help"/>
-        <NavLink to="" text="Contact"/>
-        <NavLink to="" text="Pricing"/>
-        <NavLink to="" text="Features"/>
+        <NavLink :is-active="route().current('faq')" :to="route('faq')"  to="" text="FAQ"/>
+        <NavLink onclick="botmanChatWidget.open(); return false;" text="Help"/>
+        <NavLink :is-active="route().current('contact')" :to="route('contact')" to="" text="Contact"/>
+          <NavLink :is-active="route().current('fees')" :to="route('fees')" text="Fees" />
+          <NavLink :is-active="route().current('fields')" :to="route('fields')" text="Our Fields" />
       </div>
     </div>
     <div class="flex flex-col space-y-3">
       <h3 class="text-2xl font-semibold text-primary-dark">Links</h3>
-      <div class="flex flex-col space-y-2">
-        <NavLink :is-active="route().current('welcome')" :to="route('welcome')" text="Home" />
-        <NavLink :is-active="route().current('about')" :to="route('about')" text="About" />
-        <NavLink :is-active="route().current('welcome')" :to="route('welcome')" text="Contact" />
-        <NavLink :is-active="route().current('welcome')" :to="route('welcome')" text="Fees" />
-        <NavLink :is-active="route().current('welcome')" :to="route('welcome')" text="Our Fields" />
-      </div>
+        <div class="flex flex-col space-y-2">
+            <NavLink :is-active="route().current('welcome')" :to="route('welcome')" text="Home" />
+            <NavLink :is-active="route().current('about')" :to="route('about')" text="About" />
+            <NavLink :is-active="route().current('contact')" :to="route('contact')" text="Contact" />
+            <NavLink :is-active="route().current('fees')" :to="route('fees')" text="Fees" />
+            <NavLink :is-active="route().current('fields')" :to="route('fields')" text="Our Fields" />
+        </div>
     </div>
     <div class="flex flex-col space-y-3">
       <h3 class="text-2xl font-semibold text-primary-dark">Contact Us</h3>
       <div class="flex flex-col space-y-2">
-        <a href="">+237 (677 802 114)</a>
-        <a href="">info@email.com</a>
+        <a href="tel:+2376779802114">+237 (677 802 114)</a>
+        <a href="mailto:info@traitz.tech">info@traitz.tech</a>
       </div>
     </div>
   </div>

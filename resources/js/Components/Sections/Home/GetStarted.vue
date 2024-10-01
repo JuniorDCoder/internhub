@@ -15,8 +15,8 @@
                 <h2 class="text-3xl text-primary-dark font-semibold">
                     Benefits of Joining Us
                 </h2>
-                <div class="flex flex-row justify-between">
-                    <div class="flex-col w-1/2 space-y-3">
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div class="flex-col md:w-1/2 space-y-3">
                         <div class="flex items-center flex-row space-x-2">
                             <span class="bg-primary w-3 h-3 rounded-full"></span>
                             <h3 class="font-semibold text-gray-900 text-md">Real-World Experience</h3>
@@ -34,7 +34,7 @@
                             <h3 class="font-semibold text-gray-900 text-md">Professional Growth</h3>
                         </div>
                     </div>
-                    <div class="flex-col w-1/2 space-y-3">
+                    <div class="flex-col md:w-1/2 space-y-3">
                         <div class="flex items-center flex-row space-x-2">
                             <span class="bg-primary w-3 h-3 rounded-full"></span>
                             <h3 class="font-semibold text-gray-900 text-md">Creative Freedom</h3>

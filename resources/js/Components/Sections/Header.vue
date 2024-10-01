@@ -7,7 +7,7 @@
           <NavLink :is-active="route().current('welcome')" :to="route('welcome')" text="Home" />
           <NavLink :is-active="route().current('about')" :to="route('about')" text="About" />
           <NavLink :is-active="route().current('contact')" :to="route('contact')" text="Contact" />
-          <NavLink :is-active="route().current('fees')" :to="route('fees')" text="Fees" />
+          <NavLink :is-active="route().current('faq')" :to="route('faq')" text="FAQ" />
           <NavLink :is-active="route().current('fields')" :to="route('fields')" text="Our Fields" />
         </div>
         <div class="hidden md:flex space-x-3">
@@ -37,7 +37,7 @@
           <NavLink :is-active="route().current('welcome')" :to="route('welcome')" text="Home" @click="toggleMenu" />
           <NavLink :is-active="route().current('about')" :to="route('about')" text="About" @click="toggleMenu" />
           <NavLink :is-active="route().current('contact')" :to="route('contact')" text="Contact" @click="toggleMenu" />
-          <NavLink :is-active="route().current('fees')" :to="route('fees')" text="Fees" @click="toggleMenu" />
+          <NavLink :is-active="route().current('faq')" :to="route('faq')" text="FAQ" @click="toggleMenu" />
           <NavLink :is-active="route().current('fields')" :to="route('fields')" text="Our Fields" @click="toggleMenu" />
           <Button :to="route('apply')" text="Apply Now" additional-classes="bg-secondary text-dark border-2 border-primary hover:text-white" @click="toggleMenu" />
             <Button v-if="isAuthenticated" :to="route('dashboard')" text="Dashboard" additional-classes="bg-primary font-semibold text-secondary" @click="toggleMenu" />

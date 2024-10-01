@@ -39,4 +39,11 @@ class HomeController extends Controller
             'internshipApplications' => auth()->user()->internships()->with(['specialty', 'user'])->get(),
         ]);
     }
+    public function faq()
+    {
+        $faqs = config('faqs');
+        return Inertia::render('FAQ', [
+            'faqs' => $faqs
+        ]);
+    }
 }
