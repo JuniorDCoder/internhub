@@ -1,5 +1,5 @@
 <template>
-    <AnimatedContent animation-type="fade" delay=100 >
+    <AnimatedContent animation-type="zoom" delay=100 >
         <div class="flex flex-col space-y-3 bg-white shadow-lg rounded-md p-6">
             <span class="text-5xl text-primary-dark font-bold">{{number}}.</span>
             <h3 class="text-2xl text-primary-dark font-semibold"> {{title}}</h3>

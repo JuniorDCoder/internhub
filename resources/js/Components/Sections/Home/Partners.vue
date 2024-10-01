@@ -6,14 +6,15 @@
           <img src="@/assets/images/wiscoprec.png" class="h-12 rounded-md" alt="">
           <img src="@/assets/images/solavise.png" class="h-12 rounded-md" alt="">
           <img src="@/assets/images/wiscoprec.png" class="h-12 rounded-md" alt="">
-          <img src="@/assets/images/traitz.jpeg" class="h-12 rounded-md" alt="">
-          <img src="@/assets/images/solavise.png" class="h-12 rounded-md" alt="">
-          <img src="@/assets/images/traitz.jpeg" class="h-12 rounded-md" alt="">
-          <img src="@/assets/images/wiscoprec.png" class="h-12 rounded-md" alt="">
-          <img src="@/assets/images/solavise.png" class="h-12 rounded-md" alt="">
-          <img src="@/assets/images/wiscoprec.png" class="h-12 rounded-md" alt="">
-          <img src="@/assets/images/traitz.jpeg" class="h-12 rounded-md" alt="">
-          <img src="@/assets/images/solavise.png" class="h-12 rounded-md" alt="">
+          <img src="@/assets/images/logo.png" class="h-12 rounded-md" alt="">
+          <img src="@/assets/images/ggit.png" class="h-12 rounded-md" alt="">
+            <img src="@/assets/images/girlforce.png" class="h-12 rounded-md" alt="">
+            <img src="@/assets/images/unib.png" class="h-12 rounded-md" alt="">
+            <img src="@/assets/images/lurmina.png" class="h-12 rounded-md" alt="">
+            <img src="@/assets/images/traitz.jpeg" class="h-12 rounded-md" alt="">
+            <img src="@/assets/images/wiscoprec.png" class="h-12 rounded-md" alt="">
+            <img src="@/assets/images/solavise.png" class="h-12 rounded-md" alt="">
+            <img src="@/assets/images/wiscoprec.png" class="h-12 rounded-md" alt="">
         </div>
       </div>
     </AnimatedContent>
