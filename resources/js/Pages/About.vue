@@ -1,11 +1,9 @@
 <template>
     <GuestLayout>
         <Head title="About" />
-        <AnimatedContent>
-            <GetStarted about="At Traitz Tech, we're passionate about using technology as a bridge to build stronger communities. We're a creative studio brimming with problem-solvers who believe in crafting innovative tech solutions to address the challenges faced by our communities. From developing helpful apps to designing user -friendly platforms, we're here to empower people and create a more connected future, together." />
-            <Partners />
-            <OurFields />
-        </AnimatedContent>
+        <GetStarted about="At Traitz Tech, we're passionate about using technology as a bridge to build stronger communities. We're a creative studio brimming with problem-solvers who believe in crafting innovative tech solutions to address the challenges faced by our communities. From developing helpful apps to designing user -friendly platforms, we're here to empower people and create a more connected future, together." />
+        <Partners />
+        <OurFields />
     </GuestLayout>
 </template>
 

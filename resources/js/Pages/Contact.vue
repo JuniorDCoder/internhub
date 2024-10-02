@@ -1,8 +1,8 @@
 <template>
     <GuestLayout>
         <Head title="Contact" />
-        <AnimatedContent>
-            <div class="md:px-40 flex flex-col px-5 py-16">
+        <AnimatedContent animation-type="zoom" delay=200>
+            <div class="md:px-40 flex flex-col px-5 py-5 md:py-16">
                 <h1 class="text-4xl font-bold text-primary-dark mb-8">Contact Us</h1>
                 <div class="mb-6">
                     <p class="text-lg text-gray-700 mb-4">We would love to hear from you! Please reach out to us using the form below or through our contact details.</p>

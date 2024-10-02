@@ -137,7 +137,7 @@
 
                     <div v-if="step === 5">
                         <h2 class="text-2xl font-bold mb-6 text-center">Review & Submit</h2>
-                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="bg-white rounded-lg">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <p class="text-lg"><strong>Name:</strong> {{ form.name }}</p>

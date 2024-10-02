@@ -1,7 +1,7 @@
 <template>
     <GuestLayout>
         <Head title="Fees" />
-        <AnimatedContent>
+        <AnimatedContent animation-type="zoom" delay=200>
 
         </AnimatedContent>
     </GuestLayout>

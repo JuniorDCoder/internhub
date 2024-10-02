@@ -1,8 +1,8 @@
 <template>
     <GuestLayout>
         <Head title="Frequently Asked Questions" />
-        <AnimatedContent>
-            <div class="px-5 md:px-40 py-16">
+        <AnimatedContent animation-type="zoom" delay=200>
+            <div class="px-5 md:px-40 py-5 md:py-16">
                 <h1 class="text-4xl text-primary-dark font-bold mb-4">Frequently Asked Questions</h1>
                 <input
                     v-model="searchQuery"

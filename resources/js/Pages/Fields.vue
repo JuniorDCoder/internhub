@@ -1,7 +1,7 @@
 <template>
     <GuestLayout>
         <Head title="Our Fields" />
-        <AnimatedContent>
+        <AnimatedContent animation-type="zoom" delay=200>
             <OurFields />
         </AnimatedContent>
     </GuestLayout>
