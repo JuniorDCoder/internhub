@@ -34,6 +34,7 @@ class HandleInertiaRequests extends Middleware
             ...parent::share($request),
             'auth' => [
                 'user' => $request->user(),
+                'role' => auth()->user()? $request->user()->getRoleNames()->first(): null,
             ],
             'ziggy' => fn () => [
                 ...(new Ziggy)->toArray(),
