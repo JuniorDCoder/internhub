@@ -18,7 +18,7 @@
                                 <p class="text-lg"><strong class="text-gray-700">Start Date:</strong> <span class="text-gray-900">{{ internship.start_date }}</span></p>
                                 <p class="text-lg"><strong class="text-gray-700">End Date:</strong> <span class="text-gray-900">{{ internship.end_date }}</span></p>
                                 <p class="text-lg"><strong class="text-gray-700">Status:</strong> <span class="text-gray-900">{{ internship.status }}</span></p>
-                                <p class="text-lg"><strong class="text-gray-700">Is Accepted:</strong> <span class="text-gray-900">{{ internship.is_accepted}}</span></p>
+                                <p class="text-lg"><strong class="text-gray-700">Is Accepted:</strong> <span class="text-gray-900">{{ internship.is_accepted === 0 ? "No" : "Yes"}}</span></p>
                             </div>
                             <div class="space-y-4">
                                 <p class="text-lg"><strong class="text-gray-700">User Name:</strong> <span class="text-gray-900">{{ internship.user.name }}</span></p>
@@ -32,15 +32,14 @@
                             <h4 class="text-2xl font-semibold mb-4 text-gray-900">Resume Preview</h4>
                             <iframe :src="`/storage/${internship.user.resume}`" class="w-full h-96 border rounded-md"></iframe>
                         </div>
-                        <div v-if="$page.props.auth.role === 'admin'" class="mt-8 flex space-x-4">
-                            <form @submit.prevent="submitForm('accepted')" method="POST">
-                                <PrimaryButton>
-                                    Accept Internship
-                                </PrimaryButton>
-                            </form>
-                            <form @submit.prevent="submitForm('rejected')" method="POST">
-                                <SecondaryButton type="submit">Reject Internship</SecondaryButton>
-                            </form>
+                        <div v-if="$page.props.auth.role === 'admin'" class="mt-8">
+                            <div v-if="internship.status === 'pending'" class="flex space-x-4">
+                                <PrimaryButton @click="showConfirmation('accepted')">Accept Internship</PrimaryButton>
+                                <SecondaryButton @click="showConfirmation('rejected')">Reject Internship</SecondaryButton>
+                            </div>
+                            <div v-else class="bg-green-100 text-green-700 p-4 rounded-lg shadow-md">
+                                <p class="text-center">This application has already been reviewed.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -48,6 +47,14 @@
         </AnimatedContent>
         <Loader v-if="form.processing" />
         <SuccessPopup v-if="showSuccessPopup" @close="showSuccessPopup = false" />
+        <ConfirmationModal
+            v-if="showModal"
+            :show="showModal"
+            title="Confirm Action"
+            :message="`Are you sure you want to ${action} this internship application?`"
+            @confirm="submitForm"
+            @cancel="showModal = false"
+        />
     </AuthenticatedLayout>
 </template>
 
@@ -56,24 +63,33 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import AnimatedContent from "@/Components/AnimatedContent.vue";
 import Loader from "@/Components/Loader.vue";
 import SuccessPopup from "@/Components/SuccessPopup.vue";
-import { Head, usePage, useForm } from "@inertiajs/vue3";
+import ConfirmationModal from "@/Components/ConfirmationModal.vue";
+import {Head, usePage, useForm} from "@inertiajs/vue3";
 import {ref} from "vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import SecondaryButton from "@/Components/SecondaryButton.vue";
 
-const { props } = usePage();
+const {props} = usePage();
 
 const form = useForm({
     status: "",
 });
 
 const showSuccessPopup = ref(false);
+const showModal = ref(false);
+const action = ref("");
 
-const submitForm = (status) => {
-    form.status = status;
-    form.put(route('internships.update', { internship: props.internship.id }), {
+const showConfirmation = (status) => {
+    action.value = status;
+    showModal.value = true;
+};
+
+const submitForm = () => {
+    form.status = action.value;
+    form.put(route('internships.update', {internship: props.internship.id}), {
         onSuccess: () => {
             showSuccessPopup.value = true;
+            showModal.value = false;
         },
     });
 };

@@ -56,8 +56,8 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
 import AnimatedContent from "@/Components/AnimatedContent.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
-import AdminAnalytics from "@/Components/AdminAnalytics.vue";
-import InternshipApplications from "@/Components/InternshipApplications.vue";
+import AdminAnalytics from "@/Components/Sections/Dashboard/AdminAnalytics.vue";
+import InternshipApplications from "@/Components/Sections/Dashboard/InternshipApplications.vue";
 
 const props = defineProps({
     internshipApplications: {

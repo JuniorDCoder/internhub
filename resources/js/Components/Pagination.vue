@@ -16,10 +16,10 @@ defineProps({
                 <Link
                     v-if="link.url"
                     :href="link.url"
-                    class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
+                    :class="['px-3 py-2 leading-tight border border-gray-300 hover:bg-gray-100 hover:text-gray-700', { 'bg-gray-800 text-white': link.active }]"
                     v-html="link.label"
                 ></Link>
-                <span v-else class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300" v-html="link.label"></span>
+                <span v-else :class="['px-3 py-2 leading-tight border border-gray-300', { 'bg-gray-800 text-white': link.active }]" v-html="link.label"></span>
             </li>
         </ul>
     </nav>

@@ -36,6 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/dashboard/users', [HomeController::class, 'users'])->name('users.all');
+
     Route::get('/applications/{internship}', [InternshipController::class, 'show'])->name('application.show');
     Route::put('applications/{internship}/update', [InternshipController::class, 'update'])->name('internships.update');
 });

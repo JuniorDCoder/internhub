@@ -37,6 +37,16 @@ const showingNavigationDropdown = ref(false);
                                     Dashboard
                                 </NavLink>
                             </div>
+                            <div
+                                class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex"
+                            >
+                                <NavLink
+                                    :href="route('users.all')"
+                                    :active="route().current('users.all')"
+                                >
+                                    Users
+                                </NavLink>
+                            </div>
 
                         </div>
 
@@ -143,6 +153,14 @@ const showingNavigationDropdown = ref(false);
                             :active="route().current('dashboard')"
                         >
                             Dashboard
+                        </ResponsiveNavLink>
+                    </div>
+                    <div class="space-y-1 pb-3 pt-2">
+                        <ResponsiveNavLink
+                            :href="route('users.all')"
+                            :active="route().current('users.all')"
+                        >
+                            Users
                         </ResponsiveNavLink>
                     </div>
 

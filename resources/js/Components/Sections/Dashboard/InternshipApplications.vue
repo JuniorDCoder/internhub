@@ -27,7 +27,8 @@
                                    placeholder="Search by user name">
                         </div>
                         <div class="flex space-x-4 items-end">
-                            <PrimaryButton>Filter</PrimaryButton>
+                            <img @click="submit" src="@/assets/images/icons/filter.png" class="md:w-9 md:h-9 w-24 h-11 cursor-pointer" alt="filter">
+<!--                            <PrimaryButton>Filter</PrimaryButton>-->
                         </div>
                     </form>
                 </div>

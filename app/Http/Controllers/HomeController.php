@@ -76,4 +76,19 @@ class HomeController extends Controller
             'faqs' => $faqs
         ]);
     }
+
+    public function users(){
+        if(auth()->user()->hasRole('admin')){
+            $users = User::with(['internships.specialty'])->paginate(5);
+            $schools = User::select('school')->distinct()->pluck('school');
+            $specialties = Specialty::all();
+
+            return Inertia::render('Auth/Users', [
+                'users' => $users,
+                'schools' => $schools,
+                'specialties' => $specialties,
+            ]);
+        }
+        return redirect()->route('dashboard');
+    }
 }
