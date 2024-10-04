@@ -4,7 +4,7 @@
         <AnimatedContent>
             <div class="flex flex-col md:flex-row md:space-x-7 px-5 pt-16 w-full md:px-40">
                 <!-- Success Popup -->
-                <div v-if="showSuccessPopup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                <div v-if="showSuccessPopup" class="fixed inset-0 flex md:px-0 px-5 items-center justify-center bg-black bg-opacity-50">
                     <div class="bg-white p-6 rounded-lg shadow-lg text-center">
                         <img src="@/assets/images/icons/success.png" alt="Success" class="w-16 h-16 mx-auto mb-4" />
                         <h2 class="text-2xl font-bold mb-2">Success!</h2>
