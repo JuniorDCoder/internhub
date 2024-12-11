@@ -19,6 +19,7 @@
         "vue": "^3.4.0"
     },
     "dependencies": {
+        "aos": "^2.3.4",
         "vue3-country-region-select": "^1.0.0"
     }
 }
