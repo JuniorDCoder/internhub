@@ -1,9 +1,18 @@
 <template>
     <GuestLayout>
         <Head title="Frequently Asked Questions" />
-        <AnimatedContent animation-type="zoom" delay=200>
-            <div class="px-5 md:px-40 py-5 md:py-16">
-                <h1 class="text-4xl text-primary-dark font-bold mb-4">Frequently Asked Questions</h1>
+        <div
+            data-aos="fade-up"
+            data-aos-offset="200"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos-anchor-placement="top-center"
+        >
+            <div class="px-5 py-5 md:px-40 md:py-16">
+                <h1 class="mb-4 text-4xl font-bold text-primary-dark">Frequently Asked Questions</h1>
                 <input
                     v-model="searchQuery"
                     @input="searchFaqs"
@@ -12,8 +21,8 @@
                     class="w-full p-2 mb-5 border border-gray-300 rounded"
                 />
                 <div class="space-y-4">
-                    <div v-for="(faq, index) in filteredFaqs" :key="index" class="border-b border-gray-200 pb-4">
-                        <button @click="toggleFaq(index)" class="w-full text-left flex justify-between items-center py-2">
+                    <div v-for="(faq, index) in filteredFaqs" :key="index" class="pb-4 border-b border-gray-200">
+                        <button @click="toggleFaq(index)" class="flex items-center justify-between w-full py-2 text-left">
                             <span class="text-xl font-semibold">{{ faq.question }}</span>
                             <svg :class="{'transform rotate-180': faq.open}" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -24,11 +33,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-8 flex justify-center">
-                    <button @click="loadMore" v-if="hasMore" class="bg-primary text-white px-4 py-2 rounded">Show More</button>
+                <div class="flex justify-center mt-8">
+                    <button @click="loadMore" v-if="hasMore" class="px-4 py-2 text-white rounded bg-primary">Show More</button>
                 </div>
             </div>
-        </AnimatedContent>
+        </div>
     </GuestLayout>
 </template>
 

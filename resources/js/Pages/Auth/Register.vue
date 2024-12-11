@@ -24,13 +24,13 @@ const submit = () => {
     <GuestLayout>
         <Head title="Register" />
 
-        <div class="flex w-full md:px-40 px-5 items-center flex-col md:flex-row md:space-x-4 items-center">
+        <div class="flex flex-col items-center w-full px-5 md:px-40 md:flex-row md:space-x-4">
             <img
                 src="@/assets/images/register.jpg"
                 alt="Register"
                 class="md:w-1/2"
             />
-            <div class="md:w-1/2 w-full">
+            <div class="w-full md:w-1/2">
                 <div class="flex items-center p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
                     <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
@@ -48,7 +48,7 @@ const submit = () => {
                         <TextInput
                             id="name"
                             type="text"
-                            class="mt-1 block w-full"
+                            class="block w-full mt-1"
                             v-model="form.name"
                             required
                             autofocus
@@ -64,7 +64,7 @@ const submit = () => {
                         <TextInput
                             id="email"
                             type="email"
-                            class="mt-1 block w-full"
+                            class="block w-full mt-1"
                             v-model="form.email"
                             required
                             autocomplete="username"
@@ -79,7 +79,7 @@ const submit = () => {
                         <TextInput
                             id="password"
                             type="password"
-                            class="mt-1 block w-full"
+                            class="block w-full mt-1"
                             v-model="form.password"
                             required
                             autocomplete="new-password"
@@ -97,7 +97,7 @@ const submit = () => {
                         <TextInput
                             id="password_confirmation"
                             type="password"
-                            class="mt-1 block w-full"
+                            class="block w-full mt-1"
                             v-model="form.password_confirmation"
                             required
                             autocomplete="new-password"
@@ -109,10 +109,10 @@ const submit = () => {
                         />
                     </div>
 
-                    <div class="mt-4 flex items-center justify-end">
+                    <div class="flex items-center justify-end mt-4">
                         <Link
                             :href="route('login')"
-                            class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         >
                             Already registered?
                         </Link>

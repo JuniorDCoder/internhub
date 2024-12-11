@@ -7,12 +7,21 @@
             </h2>
         </template>
 
-        <AnimatedContent>
-            <div class="py-12 md:px-0 px-5">
+        <div
+            data-aos="fade-up"
+            data-aos-offset="200"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos-anchor-placement="top-center"
+        >
+            <div class="px-5 py-12 md:px-0">
                 <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div class="bg-white shadow-md rounded-lg p-8">
-                        <h3 class="text-3xl font-bold mb-6 text-gray-900">Internship Details</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-8 bg-white rounded-lg shadow-md">
+                        <h3 class="mb-6 text-3xl font-bold text-gray-900">Internship Details</h3>
+                        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                             <div class="space-y-4">
                                 <p class="text-lg"><strong class="text-gray-700">Specialty:</strong> <span class="text-gray-900">{{ internship.specialty.name }}</span></p>
                                 <p class="text-lg"><strong class="text-gray-700">Start Date:</strong> <span class="text-gray-900">{{ internship.start_date }}</span></p>
@@ -29,22 +38,22 @@
                             </div>
                         </div>
                         <div v-if="internship.user.resume" class="mt-8">
-                            <h4 class="text-2xl font-semibold mb-4 text-gray-900">Resume Preview</h4>
-                            <iframe :src="`/storage/${internship.user.resume}`" class="w-full h-96 border rounded-md"></iframe>
+                            <h4 class="mb-4 text-2xl font-semibold text-gray-900">Resume Preview</h4>
+                            <iframe :src="`/storage/${internship.user.resume}`" class="w-full border rounded-md h-96"></iframe>
                         </div>
                         <div v-if="$page.props.auth.role === 'admin'" class="mt-8">
                             <div v-if="internship.status === 'pending'" class="flex space-x-4">
                                 <PrimaryButton @click="showConfirmation('accepted')">Accept Internship</PrimaryButton>
                                 <SecondaryButton @click="showConfirmation('rejected')">Reject Internship</SecondaryButton>
                             </div>
-                            <div v-else class="bg-green-100 text-green-700 p-4 rounded-lg shadow-md">
+                            <div v-else class="p-4 text-green-700 bg-green-100 rounded-lg shadow-md">
                                 <p class="text-center">This application has already been reviewed.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </AnimatedContent>
+        </div>
         <Loader v-if="form.processing" />
         <SuccessPopup v-if="showSuccessPopup" @close="showSuccessPopup = false" />
         <ConfirmationModal

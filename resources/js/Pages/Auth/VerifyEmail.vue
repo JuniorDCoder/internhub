@@ -25,13 +25,13 @@ const verificationLinkSent = computed(
     <GuestLayout>
         <Head title="Email Verification" />
 
-        <div class="flex w-full md:px-40 px-5 items-center flex-col md:flex-row md:space-x-4 items-center">
+        <div class="flex flex-col items-center md:px-40 md:flex-row md:space-x-4">
             <img
                 src="@/assets/images/verify-email.avif"
                 alt="Register"
                 class="md:w-1/2"
             />
-            <div class="md:w-1/2 w-full">
+            <div class="w-full md:w-1/2">
                 <div class="flex items-center p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300" role="alert">
                     <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
@@ -58,7 +58,7 @@ const verificationLinkSent = computed(
                 </div>
 
                 <form @submit.prevent="submit">
-                    <div class="mt-4 flex items-center justify-between">
+                    <div class="flex items-center justify-between mt-4">
                         <PrimaryButton
                             :class="{ 'opacity-25': form.processing }"
                             :disabled="form.processing"
@@ -70,7 +70,7 @@ const verificationLinkSent = computed(
                             :href="route('logout')"
                             method="post"
                             as="button"
-                            class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         >Log Out</Link
                         >
                     </div>

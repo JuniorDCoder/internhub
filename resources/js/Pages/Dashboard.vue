@@ -8,16 +8,25 @@
             </h2>
         </template>
 
-        <AnimatedContent animation-type="zoom" delay=200>
-            <div class="md:py-12 py-6 md:px-0 px-5">
+        <div
+            data-aos="fade-up"
+            data-aos-offset="200"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos-anchor-placement="top-center"
+        >
+            <div class="px-5 py-6 md:py-12 md:px-0">
                 <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div v-if="$page.props.auth.role === 'user'" class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900">
-                            <h3 class="text-2xl font-bold mb-4">Welcome, {{ $page.props.auth.user.name }}! 🎉</h3>
+                            <h3 class="mb-4 text-2xl font-bold">Welcome, {{ $page.props.auth.user.name }}! 🎉</h3>
                             <p class="mb-6">
                                 To apply for an internship, please follow the steps below:
                             </p>
-                            <ul class="list-disc list-inside mb-6">
+                            <ul class="mb-6 list-disc list-inside">
                                 <li>Review the available internship fields.</li>
                                 <li>Prepare your resume (optional).</li>
                                 <li>Click the button below to start your application.</li>
@@ -47,14 +56,13 @@
                     />
                 </div>
             </div>
-        </AnimatedContent>
+        </div>
     </AuthenticatedLayout>
 </template>
 
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
-import AnimatedContent from "@/Components/AnimatedContent.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import AdminAnalytics from "@/Components/Sections/Dashboard/AdminAnalytics.vue";
 import InternshipApplications from "@/Components/Sections/Dashboard/InternshipApplications.vue";

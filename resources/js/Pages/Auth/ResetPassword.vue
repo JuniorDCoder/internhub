@@ -34,13 +34,13 @@ const submit = () => {
 <template>
     <GuestLayout>
         <Head title="Reset Password" />
-        <div class="flex w-full md:px-40 px-5 items-center flex-col md:flex-row md:space-x-4 items-center">
+        <div class="flex flex-col items-center w-full px-5 md:px-40 md:flex-row md:space-x-4">
             <img
                 src="@/assets/images/reset-pwd.jpg"
                 alt="Register"
                 class="md:w-1/2"
             />
-            <div class="md:w-1/2 w-full">
+            <div class="w-full md:w-1/2">
                 <form @submit.prevent="submit">
                     <div>
                         <InputLabel for="email" value="Email" />
@@ -48,7 +48,7 @@ const submit = () => {
                         <TextInput
                             id="email"
                             type="email"
-                            class="mt-1 block w-full"
+                            class="block w-full mt-1"
                             v-model="form.email"
                             required
                             autofocus
@@ -64,7 +64,7 @@ const submit = () => {
                         <TextInput
                             id="password"
                             type="password"
-                            class="mt-1 block w-full"
+                            class="block w-full mt-1"
                             v-model="form.password"
                             required
                             autocomplete="new-password"
@@ -82,7 +82,7 @@ const submit = () => {
                         <TextInput
                             id="password_confirmation"
                             type="password"
-                            class="mt-1 block w-full"
+                            class="block w-full mt-1"
                             v-model="form.password_confirmation"
                             required
                             autocomplete="new-password"
@@ -94,7 +94,7 @@ const submit = () => {
                         />
                     </div>
 
-                    <div class="mt-4 flex items-center justify-end">
+                    <div class="flex items-center justify-end mt-4">
                         <PrimaryButton
                             :class="{ 'opacity-25': form.processing }"
                             :disabled="form.processing"

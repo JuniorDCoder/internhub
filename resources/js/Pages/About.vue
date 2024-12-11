@@ -8,8 +8,6 @@
 </template>
 
 <script setup>
-
-import AnimatedContent from "@/Components/AnimatedContent.vue";
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import {Head} from "@inertiajs/vue3";
 

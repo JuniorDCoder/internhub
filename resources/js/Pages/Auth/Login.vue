@@ -36,20 +36,20 @@ const submit = () => {
         <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
             {{ status }}
         </div>
-        <div class="flex w-full md:px-40 px-5 items-center flex-col md:flex-row md:space-x-4 items-center">
+        <div class="flex flex-col items-center w-full px-5 md:px-40 md:flex-row md:space-x-4">
             <img
                 src="@/assets/images/login.jpg"
                 alt="Register"
                 class="md:w-1/2"
             />
-            <div class="md:w-1/2 w-full">
+            <div class="w-full md:w-1/2">
                 <div class="flex items-center p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300" role="alert">
                     <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
                     </svg>
                     <span class="sr-only">Info</span>
                     <div>
-                        Please log in to apply for the Traitz Tech Internship Program. If you do not have an account, please <Link :href="route('register')" class="text-white text-xl underline">register here</Link>.
+                        Please log in to apply for the Traitz Tech Internship Program. If you do not have an account, please <Link :href="route('register')" class="text-xl text-white underline">register here</Link>.
                     </div>
                 </div>
 
@@ -60,7 +60,7 @@ const submit = () => {
                         <TextInput
                             id="email"
                             type="email"
-                            class="mt-1 block w-full"
+                            class="block w-full mt-1"
                             v-model="form.email"
                             required
                             autofocus
@@ -76,7 +76,7 @@ const submit = () => {
                         <TextInput
                             id="password"
                             type="password"
-                            class="mt-1 block w-full"
+                            class="block w-full mt-1"
                             v-model="form.password"
                             required
                             autocomplete="current-password"
@@ -85,18 +85,18 @@ const submit = () => {
                         <InputError class="mt-2" :message="form.errors.password" />
                     </div>
 
-                    <div class="mt-4 block">
+                    <div class="block mt-4">
                         <label class="flex items-center">
                             <Checkbox name="remember" v-model:checked="form.remember" />
-                            <span class="ms-2 text-sm text-gray-600">Remember me</span>
+                            <span class="text-sm text-gray-600 ms-2">Remember me</span>
                         </label>
                     </div>
 
-                    <div class="mt-4 flex items-center justify-end">
+                    <div class="flex items-center justify-end mt-4">
                         <Link
                             v-if="canResetPassword"
                             :href="route('password.request')"
-                            class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         >
                             Forgot your password?
                         </Link>

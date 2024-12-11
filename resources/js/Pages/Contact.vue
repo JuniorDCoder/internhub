@@ -1,12 +1,21 @@
 <template>
     <GuestLayout>
         <Head title="Contact" />
-        <AnimatedContent animation-type="zoom" delay=200>
-            <div class="md:px-40 flex flex-col px-5 py-5 md:py-16">
-                <h1 class="text-4xl font-bold text-primary-dark mb-8">Contact Us</h1>
+        <div
+            data-aos="fade-up"
+            data-aos-offset="200"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos-anchor-placement="top-center"
+        >
+            <div class="flex flex-col px-5 py-5 md:px-40 md:py-16">
+                <h1 class="mb-8 text-4xl font-bold text-primary-dark">Contact Us</h1>
                 <div class="mb-6">
-                    <p class="text-lg text-gray-700 mb-4">We would love to hear from you! Please reach out to us using the form below or through our contact details.</p>
-                    <div class="flex md:flex-row flex-col md:items-center md:space-x-4">
+                    <p class="mb-4 text-lg text-gray-700">We would love to hear from you! Please reach out to us using the form below or through our contact details.</p>
+                    <div class="flex flex-col md:flex-row md:items-center md:space-x-4">
                         <div class="flex items-center space-x-2">
                             <svg class="w-6 h-6 text-primary animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 00-12 0v4a6 6 0 0012 0V8z"></path>
@@ -30,11 +39,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full flex flex-col md:flex-row items-center">
+                <div class="flex flex-col items-center w-full md:flex-row">
                     <img src="@/assets/images/contact.webp" class="md:w-1/2">
-                    <form @submit.prevent="submitForm" class="md:w-1/2 w-full bg-white rounded-lg">
+                    <form @submit.prevent="submitForm" class="w-full bg-white rounded-lg md:w-1/2">
                         <div class="mb-6">
-                            <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
+                            <label for="name" class="block mb-2 font-bold text-gray-700">Name</label>
                             <input
                                 v-model="form.name"
                                 type="text"
@@ -43,10 +52,10 @@
                                 :class="{'border-red-500': errors.name}"
                                 placeholder="Your Name"
                             />
-                            <p v-if="errors.name" class="text-red-500 text-sm mt-2">{{ errors.name[0] }}</p>
+                            <p v-if="errors.name" class="mt-2 text-sm text-red-500">{{ errors.name[0] }}</p>
                         </div>
                         <div class="mb-6">
-                            <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                            <label for="email" class="block mb-2 font-bold text-gray-700">Email</label>
                             <input
                                 v-model="form.email"
                                 type="email"
@@ -55,10 +64,10 @@
                                 :class="{'border-red-500': errors.email}"
                                 placeholder="Your Email"
                             />
-                            <p v-if="errors.email" class="text-red-500 text-sm mt-2">{{ errors.email[0] }}</p>
+                            <p v-if="errors.email" class="mt-2 text-sm text-red-500">{{ errors.email[0] }}</p>
                         </div>
                         <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
+                            <label for="message" class="block mb-2 font-bold text-gray-700">Message</label>
                             <textarea
                                 v-model="form.message"
                                 id="message"
@@ -67,12 +76,12 @@
                                 placeholder="Your Message"
                                 rows="5"
                             ></textarea>
-                            <p v-if="errors.message" class="text-red-500 text-sm mt-2">{{ errors.message[0] }}</p>
+                            <p v-if="errors.message" class="mt-2 text-sm text-red-500">{{ errors.message[0] }}</p>
                         </div>
                         <div class="text-center">
                             <button
                                 type="submit"
-                                class="bg-primary text-white px-6 py-3 rounded-lg shadow-lg hover:bg-primary-dark transition duration-300"
+                                class="px-6 py-3 text-white transition duration-300 rounded-lg shadow-lg bg-primary hover:bg-primary-dark"
                             >
                                 Send Message
                             </button>
@@ -80,13 +89,13 @@
                     </form>
                 </div>
                 <Loader v-if="loading" />
-                <div v-if="successMessage" class="fixed top-0 px-5 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
-                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                <div v-if="successMessage" class="fixed top-0 left-0 flex items-center justify-center w-full h-full px-5 bg-black bg-opacity-50">
+                    <div class="p-6 text-center bg-white rounded-lg shadow-lg">
                         <p class="text-lg text-green-500">{{ successMessage }}</p>
                     </div>
                 </div>
             </div>
-        </AnimatedContent>
+        </div>
     </GuestLayout>
 </template>
 
@@ -95,7 +104,6 @@ import { ref } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import axios from 'axios';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
-import AnimatedContent from '@/Components/AnimatedContent.vue';
 import Loader from '@/Components/Loader.vue';
 
 const form = ref({

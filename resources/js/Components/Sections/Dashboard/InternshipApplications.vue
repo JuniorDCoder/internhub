@@ -8,12 +8,12 @@
             <div v-if="showApplications" class="mt-4">
                 <!-- Filters Section -->
                 <div class="my-8">
-                    <h3 class="text-xl font-semibold leading-tight text-gray-800 mb-4">Filter Applications</h3>
+                    <h3 class="mb-4 text-xl font-semibold leading-tight text-gray-800">Filter Applications</h3>
                     <form @submit.prevent="submit" class="flex space-x-4">
                         <div>
                             <label for="specialty" class="block text-sm font-medium text-gray-700">Specialty</label>
                             <select v-model="form.specialty" id="specialty" name="specialty"
-                                    class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                    class="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                 <option value="all">All</option>
                                 <option v-for="specialty in specialties" :key="specialty.id" :value="specialty.id">
                                     {{ specialty.name }}
@@ -23,18 +23,18 @@
                         <div v-if="$page.props.auth.role === 'admin'">
                             <label for="user" class="block text-sm font-medium text-gray-700">User</label>
                             <input v-model="form.user" type="text" id="user" name="user"
-                                   class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                                   class="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                    placeholder="Search by user name">
                         </div>
-                        <div class="flex space-x-4 items-end">
-                            <img @click="submit" src="@/assets/images/icons/filter.png" class="md:w-9 md:h-9 w-24 h-11 cursor-pointer" alt="filter">
+                        <div class="flex items-end space-x-4">
+                            <img @click="submit" src="@/assets/images/icons/filter.png" class="w-24 cursor-pointer md:w-9 md:h-9 h-11" alt="filter">
 <!--                            <PrimaryButton>Filter</PrimaryButton>-->
                         </div>
                     </form>
                 </div>
-                <h3 class="text-xl font-semibold leading-tight text-gray-800 mb-4">Your Internship Applications</h3>
+                <h3 class="mb-4 text-xl font-semibold leading-tight text-gray-800">Your Internship Applications</h3>
                 <div v-if="internshipApplications.data.length === 0"
-                     class="bg-red-100 text-red-700 p-4 rounded-lg shadow-md">
+                     class="p-4 text-red-700 bg-red-100 rounded-lg shadow-md">
                     <p class="text-center">
                         <span v-if="$page.props.auth.role === 'admin'">
                             No internship applications found. Please encourage users to apply.
@@ -44,12 +44,22 @@
                         </span>
                     </p>
                 </div>
-                <AnimatedContent v-else>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div
+                    data-aos="fade-up"
+                    data-aos-offset="200"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                    data-aos-mirror="true"
+                    data-aos-once="false"
+                    data-aos-anchor-placement="top-center"
+                    v-else
+                >
+                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                         <div v-for="internship in internshipApplications.data" :key="internship.id"
-                             class="bg-white p-6 rounded-lg shadow-md">
-                            <h4 class="text-lg font-semibold mb-2">{{ internship.specialty?.name }} Internship</h4>
-                            <p class="text-gray-600 mb-4">Status: {{ internship.status }}</p>
+                             class="p-6 bg-white rounded-lg shadow-md">
+                            <h4 class="mb-2 text-lg font-semibold">{{ internship.specialty?.name }} Internship</h4>
+                            <p class="mb-4 text-gray-600">Status: {{ internship.status }}</p>
                             <Link :href="route('application.show', internship)">
                                 <PrimaryButton> View Details</PrimaryButton>
                             </Link>
@@ -58,7 +68,7 @@
                     <div class="mt-6">
                         <Pagination :links="internshipApplications.links"/>
                     </div>
-                </AnimatedContent>
+                </div>
             </div>
         </transition>
     </div>

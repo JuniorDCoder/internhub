@@ -1,5 +1,14 @@
 <template>
-    <AnimatedContent animationType="fade" delay=200>
+    <div
+        data-aos="fade-up"
+        data-aos-offset="200"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="top-center"
+    >
       <div class="flex items-center justify-between w-full h-20 px-5 overflow-hidden md:px-40 bg-primary">
         <div class="slider">
           <img src="@/assets/images/traitz.jpeg" class="h-12 rounded-md" alt="">
@@ -17,11 +26,10 @@
             <img src="@/assets/images/wiscoprec.png" class="h-12 rounded-md" alt="">
         </div>
       </div>
-    </AnimatedContent>
+    </div>
   </template>
 
   <script setup>
-  import AnimatedContent from "@/Components/AnimatedContent.vue";
   </script>
 
   <style scoped>
