@@ -1,35 +1,37 @@
 <template>
     <div>
         <header :class="['fixed top-0 left-0 w-full z-50 transition-all duration-300', { 'bg-blur': isScrolled }]">
-            <div class="flex items-center justify-between py-4 px-5 md:px-40">
-                <Link :href="route('welcome')" class="text-4xl font-bold text-primary-dark">InternHub.</Link>
-                <div class="hidden md:flex space-x-5">
+            <div class="flex items-center justify-between px-5 py-4 md:px-40">
+                <Link :href="route('welcome')" class="text-4xl font-bold text-primary-dark">
+                    <img src="@/assets/images/logo.png"  class="w-20 h-20" />
+                </Link>
+                <div class="hidden space-x-5 md:flex">
                     <NavLink :is-active="route().current('welcome')" :to="route('welcome')" text="Home" />
                     <NavLink :is-active="route().current('about')" :to="route('about')" text="About" />
                     <NavLink :is-active="route().current('contact')" :to="route('contact')" text="Contact" />
                     <NavLink :is-active="route().current('faq')" :to="route('faq')" text="FAQ" />
                     <NavLink :is-active="route().current('fields')" :to="route('fields')" text="Our Fields" />
                 </div>
-                <div class="hidden md:flex space-x-3 items-center">
+                <div class="items-center hidden space-x-3 md:flex">
                     <Button :to="route('apply')" text="Apply Now" additional-classes="bg-secondary text-dark border-2 border-primary hover:text-white" />
                     <div v-if="isAuthenticated" class="relative">
-                        <button to="" @click="toggleDropdown" class="flex items-center space-x-2 font-semibold text-primary-dark rounded">
+                        <button to="" @click="toggleDropdown" class="flex items-center space-x-2 font-semibold rounded text-primary-dark">
                             <span>{{ userName }}</span>
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                         </button>
                         <transition name="fade">
-                            <div v-show="dropdownOpen" class="absolute right-0 mt-4 w-48 bg-white rounded-md shadow-lg z-50">
+                            <div v-show="dropdownOpen" class="absolute right-0 z-50 w-48 mt-4 bg-white rounded-md shadow-lg">
                                 <Link :href="route('dashboard')" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Dashboard</Link>
                                 <Link :href="route('profile.edit')" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Profile</Link>
-                                <Link :href="route('logout')" method="post" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</Link>
+                                <Link :href="route('logout')" method="post" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-200">Logout</Link>
                             </div>
                         </transition>
                     </div>
                     <Button v-else :to="route('register')" text="Get Started" additional-classes="bg-primary font-semibold text-secondary" />
                 </div>
-                <div class="md:hidden flex items-center">
+                <div class="flex items-center md:hidden">
                     <img
                         v-if="!menuOpen"
                         :src="Menu"
@@ -47,7 +49,7 @@
                 </div>
             </div>
             <transition name="slide-fade">
-                <div v-if="menuOpen" class="md:hidden flex flex-col space-y-5 px-5 py-4">
+                <div v-if="menuOpen" class="flex flex-col px-5 py-4 space-y-5 md:hidden">
                     <NavLink :is-active="route().current('welcome')" :to="route('welcome')" text="Home" @click="toggleMenu" />
                     <NavLink :is-active="route().current('about')" :to="route('about')" text="About" @click="toggleMenu" />
                     <NavLink :is-active="route().current('contact')" :to="route('contact')" text="Contact" @click="toggleMenu" />
@@ -55,17 +57,17 @@
                     <NavLink :is-active="route().current('fields')" :to="route('fields')" text="Our Fields" @click="toggleMenu" />
                     <Button :to="route('apply')" text="Apply Now" additional-classes="bg-secondary text-dark border-2 border-primary hover:text-white" @click="toggleMenu" />
                     <div v-if="isAuthenticated" class="relative">
-                        <button to="" @click="toggleDropdown" class="flex items-center space-x-2 font-semibold text-primary-dark rounded">
+                        <button to="" @click="toggleDropdown" class="flex items-center space-x-2 font-semibold rounded text-primary-dark">
                             <span>{{ userName }}</span>
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                         </button>
                         <transition name="fade">
-                            <div v-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50">
+                            <div v-show="dropdownOpen" class="absolute right-0 z-50 w-48 mt-2 bg-white rounded-md shadow-lg">
                                 <Link :href="route('dashboard')" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Dashboard</Link>
                                 <Link :href="route('profile.edit')" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Profile</Link>
-                                <Link :href="route('logout')" method="post" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</Link>
+                                <Link :href="route('logout')" method="post" class="block w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-200">Logout</Link>
                             </div>
                         </transition>
                     </div>

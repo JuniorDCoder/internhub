@@ -2,7 +2,9 @@
     <div class="footer-container">
         <div class="flex flex-col justify-between w-full px-5 py-12 space-y-8 md:px-40 bg-secondary md:space-y-0 md:flex-row">
             <div class="flex flex-col space-y-2 md:w-1/4">
-                <Link :href="route('welcome')" class="text-4xl font-bold text-primary-dark">InternHub.</Link>
+                <Link :href="route('welcome')" class="text-4xl font-bold text-primary-dark">
+                    <img src="@/assets/images/logo.png"  class="w-20 h-20" />
+                </Link>
                 <p>
                     Ensure the effectiveness and success of your internship programs.
                 </p>
