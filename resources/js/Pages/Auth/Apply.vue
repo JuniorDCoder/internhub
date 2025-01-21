@@ -75,7 +75,7 @@
                                 <InputError class="mt-2" :message="form.errors.address" />
                             </div>
                             <div class="flex items-center justify-between mt-4">
-                                <PrimaryButton @click="prevStep" class="ms-4">Back</PrimaryButton>
+                                <SecondaryButton @click="prevStep" class="ms-4">Back</SecondaryButton>
                                 <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">Next</PrimaryButton>
                             </div>
                         </form>
@@ -110,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="flex items-center justify-between mt-4">
-                                <PrimaryButton @click="prevStep" class="ms-4">Back</PrimaryButton>
+                                <SecondaryButton @click="prevStep" class="ms-4">Back</SecondaryButton>
                                 <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">Next</PrimaryButton>
                             </div>
                         </form>
@@ -138,7 +138,7 @@
                                 <InputError class="mt-2" :message="form.errors.end_date" />
                             </div>
                             <div class="flex items-center justify-between mt-4">
-                                <PrimaryButton @click="prevStep" class="ms-4">Back</PrimaryButton>
+                                <SecondaryButton @click="prevStep" class="ms-4">Back</SecondaryButton>
                                 <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">Next</PrimaryButton>
                             </div>
                         </form>
@@ -168,7 +168,7 @@
                             </div>
                         </div>
                         <div class="flex items-center justify-between mt-6">
-                            <PrimaryButton @click="prevStep" class="ms-4">Back</PrimaryButton>
+                            <SecondaryButton @click="prevStep" class="ms-4">Back</SecondaryButton>
                             <PrimaryButton @click="submitForm" class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">Submit</PrimaryButton>
                         </div>
                         <div v-if="form.errors.date" class="mt-4 font-semibold text-red-600">
@@ -244,6 +244,7 @@ import InputLabel from "@/Components/InputLabel.vue";
 import TextInput from "@/Components/TextInput.vue";
 import InputError from "@/Components/InputError.vue";
 import Loader from "@/Components/Loader.vue";
+import SecondaryButton from "@/Components/SecondaryButton.vue";
 
 defineProps({
     specialties: Array,

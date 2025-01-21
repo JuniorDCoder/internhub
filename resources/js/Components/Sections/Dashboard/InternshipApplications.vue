@@ -71,7 +71,7 @@
                 </div>
             </div>
         </transition>
-        <SuccessPopup v-if="showSuccessPopup" :message="'The internship status has been deleted successfully.'" @close="showSuccessPopup = false" />
+        <SuccessPopup v-if="showSuccessPopup" :message="'The internship has been deleted successfully.'" @close="showSuccessPopup = false" />
         <ConfirmationModal
             v-if="showDeleteModal" :show="showDeleteModal"
             title="Confirm Deletion"
