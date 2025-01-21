@@ -3,15 +3,15 @@
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-2xl font-semibold leading-tight text-gray-800">
-                {{ internship.user.name }} Internship Details
+                <span class="italic font-bold">{{ internship.user.name }}'s</span> Internship Details
             </h2>
         </template>
 
         <div
             data-aos="fade-up"
-            data-aos-offset="200"
+            data-aos-offset="100"
             data-aos-delay="50"
-            data-aos-duration="1000"
+            data-aos-duration="100"
             data-aos-easing="ease-in-out"
             data-aos-mirror="true"
             data-aos-once="false"
@@ -55,7 +55,7 @@
             </div>
         </div>
         <Loader v-if="form.processing" />
-        <SuccessPopup v-if="showSuccessPopup" @close="showSuccessPopup = false" />
+        <SuccessPopup v-if="showSuccessPopup" :message="'The internship status has been updated successfully. The intern will be notified.'" @close="showSuccessPopup = false" />
         <ConfirmationModal
             v-if="showModal"
             :show="showModal"

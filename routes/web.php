@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/applications/{internship}', [InternshipController::class, 'show'])->name('application.show');
     Route::put('applications/{internship}/update', [InternshipController::class, 'update'])->name('internships.update');
+    Route::delete('/application/{id}', [InternshipController::class, 'destroy'])->name('application.destroy');
 });
 
 require __DIR__.'/auth.php';

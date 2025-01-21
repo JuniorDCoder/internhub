@@ -28,7 +28,6 @@
                         </div>
                         <div class="flex items-end space-x-4">
                             <img @click="submit" src="@/assets/images/icons/filter.png" class="w-24 cursor-pointer md:w-9 md:h-9 h-11" alt="filter">
-<!--                            <PrimaryButton>Filter</PrimaryButton>-->
                         </div>
                     </form>
                 </div>
@@ -63,6 +62,7 @@
                             <Link :href="route('application.show', internship)">
                                 <PrimaryButton> View Details</PrimaryButton>
                             </Link>
+                            <SecondaryButton class="ml-4" @click="confirmDelete(internship.id)">Delete</SecondaryButton>
                         </div>
                     </div>
                     <div class="mt-6">
@@ -71,6 +71,14 @@
                 </div>
             </div>
         </transition>
+        <SuccessPopup v-if="showSuccessPopup" :message="'The internship status has been deleted successfully.'" @close="showSuccessPopup = false" />
+        <ConfirmationModal
+            v-if="showDeleteModal" :show="showDeleteModal"
+            title="Confirm Deletion"
+            message="Are you sure you want to delete this application?"
+            @confirm="deleteApplication"
+            @cancel="showDeleteModal = false"
+        />
     </div>
 </template>
 
@@ -80,6 +88,9 @@ import { useForm, Link } from '@inertiajs/vue3';
 import AnimatedContent from "@/Components/AnimatedContent.vue";
 import Pagination from "@/Components/Pagination.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
+import SecondaryButton from '@/Components/SecondaryButton.vue';
+import ConfirmationModal from '@/Components/ConfirmationModal.vue';
+import SuccessPopup from '@/Components/SuccessPopup.vue';
 
 const props = defineProps({
     internshipApplications: {
@@ -100,6 +111,8 @@ const props = defineProps({
     },
 });
 
+const showSuccessPopup = ref(false);
+
 const form = useForm({
     specialty: props.filters.specialty || 'all',
     user: props.filters.user || '',
@@ -115,9 +128,30 @@ const submit = () => {
 };
 
 const showApplications = ref(true);
+const showDeleteModal = ref(false);
+const selectedApplicationId = ref(null);
 
 const toggleApplications = () => {
     showApplications.value = !showApplications.value;
+};
+
+const confirmDelete = (id) => {
+    selectedApplicationId.value = id;
+    showDeleteModal.value = true;
+};
+
+const deleteApplication = () => {
+    // Make a request to delete the application
+    form.delete(route('application.destroy', selectedApplicationId.value), {
+        onSuccess: () => {
+            showSuccessPopup.value = true;
+            showDeleteModal.value = false;
+        },
+        onError: (errors) => {
+            console.error(errors);
+            showDeleteModal.value = false;
+        }
+    })
 };
 </script>
 
