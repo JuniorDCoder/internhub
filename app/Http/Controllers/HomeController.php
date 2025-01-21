@@ -80,9 +80,25 @@ class HomeController extends Controller
         ]);
     }
 
-    public function users(){
-        if(auth()->user()->hasRole('admin')){
-            $users = User::with(['internships.specialty'])->paginate(5);
+    public function users(Request $request)
+    {
+        if (auth()->user()->hasRole('admin')) {
+            $query = User::with(['internships.specialty']);
+
+            // Search functionality
+            if ($request->has('search')) {
+                $search = $request->input('search');
+                $query->where(function ($q) use ($search) {
+                    $q->where('name', 'like', '%' . $search . '%')
+                      ->orWhere('email', 'like', '%' . $search . '%')
+                      ->orWhere('school', 'like', '%' . $search . '%');
+                });
+            }
+
+            // Order by created_at in descending order to show the most recent users first
+            $query->orderBy('created_at', 'desc');
+
+            $users = $query->paginate(5);
             $schools = User::select('school')->distinct()->pluck('school');
             $specialties = Specialty::all();
 
@@ -90,6 +106,7 @@ class HomeController extends Controller
                 'users' => $users,
                 'schools' => $schools,
                 'specialties' => $specialties,
+                'filters' => $request->only(['search']),
             ]);
         }
         return redirect()->route('dashboard');
