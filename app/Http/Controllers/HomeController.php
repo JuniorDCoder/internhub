@@ -51,6 +51,9 @@ class HomeController extends Controller
             });
         }
 
+        // Order by created_at in descending order to show the most recent applications first
+        $query->orderBy('created_at', 'desc');
+
         $internshipApplications = $query->paginate(5);
 
         // Analytics data
