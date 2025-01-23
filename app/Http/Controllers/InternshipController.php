@@ -52,21 +52,21 @@ class InternshipController extends Controller
         $internship->status = 'pending';
         $internship->save();
 
-        // $slackNotification = new SendSlackNotification();
-        // $slackNotification->sendInternshipNotification($internship);
+        $slackNotification = new SendSlackNotification();
+        $slackNotification->sendInternshipNotification($internship);
 
-        // // Send email notification
-        // $emailData = [
-        //     'name' => $user->name,
-        //     'specialty' => $internship->specialty->name,
-        //     'start_date' => date('F j, Y', strtotime($internship->start_date)),
-        //     'end_date' => date('F j, Y', strtotime($internship->end_date)),
-        // ];
-        // Mail::to($user->email)->send(new GeneralMailNotifier(
-        //     'Your Internship Application is Under Review',
-        //     'internship_application_review',
-        //     $emailData
-        // ));
+        // Send email notification
+        $emailData = [
+            'name' => $user->name,
+            'specialty' => $internship->specialty->name,
+            'start_date' => date('F j, Y', strtotime($internship->start_date)),
+            'end_date' => date('F j, Y', strtotime($internship->end_date)),
+        ];
+        Mail::to($user->email)->send(new GeneralMailNotifier(
+            'Your Internship Application is Under Review',
+            'internship_application_review',
+            $emailData
+        ));
 
         return redirect()->route('apply')->with('success', 'Your application has been submitted successfully!');
     }
