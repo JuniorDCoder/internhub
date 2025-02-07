@@ -19,7 +19,7 @@
 <body class="font-sans antialiased">
     @inertia
 
-    <script>
+    {{-- <script>
         var botmanWidget = {
             frameEndpoint: '/botman/chat',
             introMessage: 'Hello! How can I assist you today?',
@@ -31,6 +31,7 @@
             bubbleAvatarUrl: ''
         };
     </script>
-    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script> --}}
+    <script src="//code.jivosite.com/widget/U7aiCDWe9L" async></script>
 </body>
 </html>
